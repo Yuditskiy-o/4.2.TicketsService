@@ -25,7 +25,7 @@ class TicketsManagerTest {
         manager.ticketAdd(second);
         manager.ticketAdd(third);
         Ticket[] expected = new Ticket[]{};
-        Ticket[] actual = manager.findAll("DME", "LED");
+        Ticket[] actual = manager.findAllSortPrice("DME", "LED");
         assertArrayEquals(expected, actual);
     }
 
@@ -33,17 +33,19 @@ class TicketsManagerTest {
     public void shouldReturnTicketIfContains() {
         manager.ticketAdd(first);
         Ticket[] expected = new Ticket[]{first};
-        Ticket[] actual = manager.findAll("OVB", "SVO");
+        Ticket[] actual = manager.findAllSortPrice("OVB", "SVO");
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldSortTicketsIfContains() {
+    public void shouldSortTicketsByPriceIfContains() {
         manager.ticketAdd(first);
         manager.ticketAdd(second);
         manager.ticketAdd(third);
         Ticket[] expected = new Ticket[]{second, first};
-        Ticket[] actual = manager.findAll("OVB", "SVO");
+        Ticket[] actual = manager.findAllSortPrice("OVB", "SVO");
         assertArrayEquals(expected, actual);
     }
+
+
 }

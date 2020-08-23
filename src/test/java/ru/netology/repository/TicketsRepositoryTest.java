@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Ticket;
 import ru.netology.exception.NotFoundException;
-import ru.netology.manager.TicketsManager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
